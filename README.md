@@ -1,19 +1,54 @@
-# PhoenixCljs
+# ![Astute](logo.png)
+> Elixir (Phoenix) codebase containing shadow-cljs that adheres to spec and API.  
 
-To start your Phoenix server:
+[![CircleCI](https://circleci.com/gh/gothinkster/elixir-phoenix-realworld-example-app.svg?style=svg)](https://circleci.com/gh/gothinkster/elixir-phoenix-realworld-example-app) [![codecov](https://codecov.io/gh/gothinkster/elixir-phoenix-realworld-example-app/branch/master/graph/badge.svg)](https://codecov.io/gh/gothinkster/elixir-phoenix-realworld-example-app)
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+This codebase was created to demonstrate a fully fledged backend application built with **Elixir and Phoenix** including CRUD operations, authentication, routing, pagination, and more.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+We've gone to great lengths to adhere to the **[credo](https://github.com/rrrene/credo)** community styleguides & best practices.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Installing / Getting started
 
-## Learn more
+To run this project, you will need to install the following dependencies on your system:
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+* [Elixir](https://elixir-lang.org/install.html)
+* [Phoenix](https://hexdocs.pm/phoenix/installation.html)
+* [PostgreSQL](https://www.postgresql.org/download/macosx/)
+
+To get started, run the following commands in your project folder:
+
+```shell
+cp config/dev.exs.example config/dev.exs  # creates the project's configuration file
+mix deps.get  # installs the dependencies
+mix ecto.create  # creates the database.
+mix ecto.migrate  # run the database migrations.
+mix phx.server  # run the application.
+```
+
+This is a backend project, you won't be able to go to localhost:4000 and see an aplication. 
+
+In order to see the [Conduit](https://demo.realworld.io/#/) frontend you will need to download and setup one of the [frontend projects](https://demo.realworld.io/#/) and set it up to consume this apps api. Typically this can be done by finding the `API_URL` and setting it to `localhost:4000`.
+
+## Tests
+
+To run the tests for this project, simply run in your terminal:
+
+```shell
+mix test
+```
+
+## Documentation
+
+To generate the documentation, your can run in your terminal:
+
+```shell
+mix docs
+```
+
+This will generate a `doc/` directory with a documentation in HTML. To view the documentation, open the `index.html` file in the generated directory.
+
+## Style guide
+
+This project uses [mix format](https://hexdocs.pm/mix/master/Mix.Tasks.Format.html). You can find the configuration file for the formatter in the `.formatter.exs` file.
+
+
