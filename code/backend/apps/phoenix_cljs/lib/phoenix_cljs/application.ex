@@ -6,10 +6,14 @@ defmodule PhoenixCljs.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      PhoenixCljsWeb.Endpoint
+      supervisor(PhoenixCljsWeb.Endpoint, []), 
+      supervisor(PhoenixCljs.Repo, []),
+      worker(PhoenixCljs.CodeServer, []),
+      worker(PhoenixCljs.EventServer, [])
       # Starts a worker by calling: PhoenixCljs.Worker.start_link(arg)
       # {PhoenixCljs.Worker, arg},
     ]
