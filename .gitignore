@@ -1,9 +1,11 @@
 # The directory Mix will write compiled artifacts to.
+/code/backend/apps/_build/
+/code/frontend/.shadow-cljs/
 /_build/
-/apps/phoenix_cljs/_build/
+/code/frontend/ap/_build/
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
-
+/code/frontend/node_modules/
 # The directory Mix downloads your dependencies sources to.
 /deps/
 
@@ -26,13 +28,13 @@ phoenix_cljs-*.tar
 npm-debug.log
 
 # The directory NPM downloads your dependencies sources to.
-/apps/postgres/node_modules/
-/apps/phoenix_cljs/node_modules/
-/apps/e_meter/node_modules/
-/apps/postgres/deps/
-/apps/phoenix_cljs/deps 
-/apps/e_meter/deps 
-/apps/phoenix_cljs/assets/node_modules
+/code/backend/apps/postgres/node_modules/
+/code/backend/apps/phoenix_cljs/node_modules/
+/code/backend/apps/e_meter/node_modules/
+/code/backend/apps/postgres/deps/
+/code/backend/apps/phoenix_cljs/deps 
+/code/backend/apps/e_meter/deps 
+/code/frontend/assets/node_modules/
 
 # Since we are building assets from assets/,
 # we ignore priv/static. You may want to comment

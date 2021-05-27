@@ -1,0 +1,27 @@
+version: '2'
+services:
+  frontend:
+    build: code/frontend
+    # Lein figwheel just for getting the dependencies
+    command: bash -c "lein figwheel; sleep infinity"
+    ports:
+      - "3449:3449"
+    volumes:
+      - ./code/frontend:/code
+    depends_on:
+      - backend
+    links:
+      - backend
+  backend:
+    build: code/backend
+    command: bash -c "npm install; mix deps.unlock --all; mix deps.update --all; mix ecto.create; mix phoenix.server"
+    volumes:
+      - ./code/backend:/code
+    ports:
+      - "4001:4000"
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: postgres
