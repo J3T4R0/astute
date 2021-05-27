@@ -3,7 +3,7 @@
  ["src"]
 
  :dependencies
- []
+ [reagent "0.8.1"]
 
  :dev-http {9080 "../priv/static/js/"}
 
@@ -11,4 +11,26 @@
                 :asset-path "/js",
                 :target :browser
                 :modules {:app {:init-fn app.main/main!}}
-                :devtools {:after-load app.main/reload!}}}}
+                :devtools {:after-load app.main/reload!}
+                :main {:init-fn app.app/init}
+
+    :account-overview
+    {:entries [app.components.account-overview]
+     :depends-on #{:main}}
+
+    :product-detail
+    {:entries [app.components.product-detail]
+     :depends-on #{:main}}
+
+    :product-listing
+    {:entries [app.components.product-listing]
+     :depends-on #{:main}}
+
+    :sign-in
+    {:entries [app.components.sign-in]
+     :depends-on #{:main}}
+
+    :sign-up
+    {:entries [app.components.sign-up]
+     :depends-on #{:main}}
+}}}
