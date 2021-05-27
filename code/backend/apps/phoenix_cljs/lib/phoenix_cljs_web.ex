@@ -17,9 +17,24 @@ defmodule PhoenixCljsWeb do
   and import those modules here.
   """
 
+  def model do
+    quote do
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
+    end
+  end
+
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: PhoenixCljsWeb
+
+      alias PhoenixCljs.Repo
+      import Ecto
+      import Ecto.Query
 
       import Plug.Conn
       import PhoenixCljsWeb.Gettext
@@ -56,6 +71,8 @@ defmodule PhoenixCljsWeb do
   def channel do
     quote do
       use Phoenix.Channel
+      import Ecto
+      import Ecto.Query
       import PhoenixCljsWeb.Gettext
     end
   end
